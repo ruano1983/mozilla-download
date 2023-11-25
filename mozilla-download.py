@@ -5,7 +5,7 @@ from colorama import init as colorama_init
 colorama_init(autoreset=True)
 
 # Application to run as superuser needed to install in /opt
-approot = "doas"
+approot = "sudo"
 def parse_argument():
     ''' Definition of arguments '''
     parser = argparse.ArgumentParser(prog="mozilla-download",description="Download the latest version of Mozilla Firefox and Mozilla Thunderbird and install it in the directory </opt> or the directory you indicate. you can also choose the language with the format <en-EN> , <es-ES> for example.")
