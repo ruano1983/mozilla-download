@@ -4,8 +4,6 @@ import subprocess
 from colorama import init as colorama_init
 colorama_init(autoreset=True)
 
-# Application to run as superuser needed to install in /opt
-approot = "sudo"
 def parse_argument():
     ''' Definition of arguments '''
     parser = argparse.ArgumentParser(prog="mozilla-download",description="Download the latest version of Mozilla Firefox and Mozilla Thunderbird and install it in the directory </opt> or the directory you indicate. you can also choose the language with the format <en-EN> , <es-ES> for example.")
@@ -37,7 +35,7 @@ def download(args):
 
 def install(file,directory,mozilla):
     ''' Install Mozilla in /opt or in the folder defined by the <-d> <--directory> argument '''
-    resu_inst=subprocess.run([f"{approot}","tar","-xvf",f"{file}", "-C",f"{directory}"])
+    resu_inst=subprocess.run(["tar","-xvf",f"{file}", "-C",f"{directory}"])
     valores=check2(resu_inst)
     # Print the result of the Mozilla installation
     print(f"{valores[1]}Mozilla {mozilla} {valores[0]}")
